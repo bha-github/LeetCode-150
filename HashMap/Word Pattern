@@ -1,0 +1,15 @@
+class Solution:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        dict1 = {}
+        slist = s.strip().split( " " )
+        if len(pattern) != len(slist):
+            return False
+        for i,j in zip(pattern, slist):
+            if i in dict1.keys():
+                if dict1[i] != j:
+                    return False
+            else:
+                if j in dict1.values():
+                    return False
+                dict1[i] = j
+        return True

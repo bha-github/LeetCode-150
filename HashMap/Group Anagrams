@@ -1,0 +1,11 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        overallDict = {}
+        result = []
+        for i in strs:
+            sortedKey = "".join(sorted(i))
+            if sortedKey in overallDict.keys():
+                overallDict[sortedKey] = overallDict[sortedKey] + [i]
+            else:
+                overallDict[sortedKey] = [i]
+        return list(overallDict.values())

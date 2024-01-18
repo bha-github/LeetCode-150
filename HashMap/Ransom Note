@@ -1,0 +1,11 @@
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        pattern = {}
+        for i in ransomNote:
+            pattern[i] = pattern.setdefault(i,0) + 1
+        for k,v in pattern.items():
+            if k in magazine and v <= magazine.count(k):
+                continue
+            else:
+                return False
+        return True

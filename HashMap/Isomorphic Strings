@@ -1,0 +1,22 @@
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        i , k, j= 0 , 1, 1
+        sH = {}
+        tH = {}
+        ss, tt = "", ""
+        while i < len(s) :
+            if s[i] not in sH.keys():
+                sH[s[i]] = j
+                j+=1
+            if t[i] not in tH.keys():
+                tH[t[i]] = k
+                k+=1
+            ss += str(sH[s[i]])
+            tt += str(tH[t[i]])
+            i += 1
+        # print(sH)
+        # print(tH)
+        # print(ss)
+        # print(tt)
+        return ss == tt
+        
